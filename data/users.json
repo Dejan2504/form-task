@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "dejan@gmail.com",
+      "password": "admin"
+    },
+    {
+      "id": 2,
+      "email": "denfaksjnfn@gmail.com",
+      "password": "mfsalk"
+    },
+    {
+      "id": 0.34802488085809236,
+      "email": "\"newUser@gmail.com\"",
+      "password": "\"newPass123!\""
+    },
+    {
+      "id": 0.4045353091155046,
+      "email": "dejanKraj@gmail.com",
+      "password": "utisnjFNSAK123!"
+    }
+  ]
+}

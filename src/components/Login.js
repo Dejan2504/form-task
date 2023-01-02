@@ -1,9 +1,24 @@
 import { useEffect, useState } from "react";
 
 const Login = function() {
+    const [users, setUsers] = useState({});
     const [isValid, setIsValid] = useState(false);
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+
+    useEffect(() => {
+        fetch('http://localhost:3500/users').then(res => {
+            if(res.ok){
+                return res.json();
+            } else {
+                alert('error 404');
+            }
+        }).then(data => {
+            setUsers(data);
+            console.log(data);
+        })
+
+    },[])
 
     useEffect(() => {
         const trimmed = [...password];
@@ -13,15 +28,16 @@ const Login = function() {
         const isNumber = trimmed.some(letter => {return !isNaN(letter)});
         
         
-        if(password.length >= 8 && isUpper && isLower && isNumber && specialChars.test(password)){
+        if(password.length >= 8 && isUpper && isLower && isNumber && specialChars.test(password) && users.length > 0 && email.length > 0){
             setIsValid(true);
+        } else {
+            setIsValid(false);
         }
         
-    },[password])
+    },[password, email])
 
     const emailHandler = function(e){
         setEmail(e.target.value);
-        console.log(e.target.value.length);
     }
 
     const passwordHandler = function(e){
@@ -33,6 +49,7 @@ const Login = function() {
         <form>
             <input type='email' name='email' value={email} onChange={emailHandler} required/>
             <input type='password' name='password' value={password} onChange={passwordHandler} required/>
+            <button>Log in</button>
             {isValid ? <p>You are good to go</p> : <p>Error my man</p>}
         </form>
     )
