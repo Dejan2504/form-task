@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 const Login = function() {
     const [users, setUsers] = useState({});
     const [isValid, setIsValid] = useState(false);
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+
+    const history = useHistory();
 
     useEffect(() => {
         fetch('http://localhost:3500/users').then(res => {
@@ -45,12 +48,26 @@ const Login = function() {
         
     }
 
+    const formHandler = (e) => {
+        e.preventDefault();
+        const isUser = users.some((user) => {return user.email === email && user.password === password})
+
+        console.log(users);
+        if(isUser){
+            history.push('/products');
+        }else{
+            alert('There is no user. You need to register!');
+        }
+    }
+
     return(
-        <form>
+        <form onSubmit={formHandler}>
             <input type='email' name='email' value={email} onChange={emailHandler} required/>
             <input type='password' name='password' value={password} onChange={passwordHandler} required/>
             <button>Log in</button>
             {isValid ? <p>You are good to go</p> : <p>Error my man</p>}
+
+            <Link to='/register'>Register?</Link>
         </form>
     )
 }
