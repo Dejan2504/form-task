@@ -19,9 +19,9 @@ const Products = function() {
             setData(data);
             setLoaded(true);
         })
-    },[]);
+    },[showModal]);
 
-    const addHandler = function(){
+    const openModal = function(){
         setShowModal(true);
     };
 
@@ -30,8 +30,8 @@ const Products = function() {
         
         <ul>
         <h1>Products</h1>
-        <button onClick={addHandler}>Add product</button>
-        {showModal ? <Modal /> : ""}
+        <button onClick={openModal}>Add product</button>
+        {showModal ? <Modal setShowModal={setShowModal}/> : ""}
         <input type="text" value={searchTerm} onChange={(e) => {setSearchTerm(e.target.value)}}/>
         {loaded ? 
             data.map((product) => (

@@ -1,0 +1,35 @@
+.addProduct{
+    position: absolute;
+    top:35vh;
+    left: 35vw;
+    width: 30%;
+    height: 40vh;
+    border: 1px solid black;
+}
+
+.closeModal{
+    margin: 0;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.addProduct h1{
+    text-align: center;
+}
+
+.addProductInput{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.addProductInput input{
+    margin: 1%;
+}
+
+.addProductInput button{
+    width: 70%;
+    height: 20%;
+    display: block;
+}

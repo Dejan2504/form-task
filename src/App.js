@@ -1,4 +1,4 @@
-import {Redirect, Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login';
 import Products from './components/Products';
@@ -19,6 +19,7 @@ function App() {
       <Route path='/products'>
         <Products />
       </Route>
+
       
     </div>
   );

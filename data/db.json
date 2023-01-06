@@ -41,7 +41,6 @@
       "password": "Teodora1!"
     }
   ],
-
   "products": [
     {
       "id": 1,
@@ -52,6 +51,18 @@
       "id": 2,
       "title": "Naslov 2",
       "description": "Opis 2"
+    },
+    {
+      "createdAt": "2023-01-06T20:28:16.741Z",
+      "title": "Some title",
+      "description": "some description yes",
+      "id": 3
+    },
+    {
+      "createdAt": "2023-01-06T20:30:05.395Z",
+      "title": "Dobar ovaj product",
+      "description": "jeste jesteee",
+      "id": 4
     }
   ]
 }
