@@ -9,6 +9,7 @@ const Products = function() {
     const [showModal, setShowModal] = useState(false);
     const [deleted, setDeleted] = useState(false);
     const [editModal, setShowEditModal] = useState(false);
+    const [editTarget, setEditTarget] = useState({});
 
     useEffect(() => {
         setDeleted(false);
@@ -43,9 +44,6 @@ const Products = function() {
         );
     }
 
-    const editProduct = function(_ , key, title, description){
-
-    }
 
     return(
         <div>
@@ -54,16 +52,16 @@ const Products = function() {
         <button onClick={openModal}>Add product</button>
         {showModal ? <Modal setShowModal={setShowModal}/> : ""}
         <input type="text" value={searchTerm} onChange={searchTermHandler}/>
+        {editModal ? <EditModal setShowEditModal={setShowEditModal} data={data} target={editTarget}/> : ""}
         {loaded ? 
             data.map((product) => (
-            <div>
+            <div key={product.id}>
                 <li key={product.id}>
                     <h1>{product.title}</h1>
                     <h3>{product.description}</h3>
                 </li>
                 <button onClick={event => deleteProduct(event, product.id)}>delete</button> 
-                <button onClick={() => {setShowEditModal(true)}}>edit</button>
-                {editModal ? <EditModal setShowEditModal={setShowEditModal} editProduct={editProduct} /> : ""}
+                <button onClick={(e) => {setShowEditModal(true); setEditTarget(product)}}>edit</button>
            </div>
         )) : 'Loading...'}
         </ul>
