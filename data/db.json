@@ -39,30 +39,31 @@
       "id": 0.522753972464556,
       "email": "dejan@gmail.com",
       "password": "Teodora1!"
+    },
+    {
+      "email": "Teodora@gmail.com",
+      "password": "Teodora123!",
+      "id": 3
     }
   ],
   "products": [
-    {
-      "id": 1,
-      "title": "Naslov",
-      "description": "Opis"
-    },
-    {
-      "id": 2,
-      "title": "Naslov 2",
-      "description": "Opis 2"
-    },
-    {
-      "createdAt": "2023-01-06T20:28:16.741Z",
-      "title": "Some title",
-      "description": "some description yes",
-      "id": 3
-    },
     {
       "createdAt": "2023-01-06T20:30:05.395Z",
       "title": "Dobar ovaj product",
       "description": "jeste jesteee",
       "id": 4
+    },
+    {
+      "createdAt": "2023-01-07T18:43:44.761Z",
+      "title": "Zvučnik",
+      "description": "blutut",
+      "id": 5
+    },
+    {
+      "createdAt": "2023-01-08T09:50:19.253Z",
+      "title": "New product",
+      "description": "novi produkt",
+      "id": 6
     }
   ]
 }

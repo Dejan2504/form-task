@@ -64,7 +64,6 @@ const Register = function() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                'id': Math.random(),
                 'email': email, 
                 'password': password})
         })
