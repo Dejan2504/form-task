@@ -48,22 +48,10 @@
   ],
   "products": [
     {
-      "createdAt": "2023-01-06T20:30:05.395Z",
-      "title": "Dobar ovaj product",
-      "description": "jeste jesteee",
-      "id": 4
-    },
-    {
-      "createdAt": "2023-01-07T18:43:44.761Z",
-      "title": "Zvučnik",
-      "description": "blutut",
-      "id": 5
-    },
-    {
-      "id": 6,
-      "title": "New prod",
-      "description": "novi prod",
-      "createdAt": "2023-01-08T09:50:19.253Z"
+      "createdAt": "2023-01-09T10:07:49.947Z",
+      "title": "new product",
+      "description": "ye yes",
+      "id": 1
     }
   ]
 }

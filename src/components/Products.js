@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import EditModal from "./EditModal";
+import DeleteModal from "./DeleteModal";
 
 const Products = function() {
     const [data, setData]= useState({});
@@ -9,7 +10,8 @@ const Products = function() {
     const [showModal, setShowModal] = useState(false);
     const [deleted, setDeleted] = useState(false);
     const [editModal, setShowEditModal] = useState(false);
-    const [editTarget, setEditTarget] = useState({});
+    const [target, setTarget] = useState({});
+    const [deleteModal, setDeleteModal] = useState(false);
 
     useEffect(() => {
         setDeleted(false);
@@ -36,6 +38,7 @@ const Products = function() {
     }
 
     const deleteProduct = function(_, key){
+        // event => deleteProduct(event, product.id)
 
         fetch(`http://localhost:3500/products/${key}`, {
             method: 'DELETE'
@@ -52,7 +55,8 @@ const Products = function() {
         <button onClick={openModal}>Add product</button>
         {showModal ? <Modal setShowModal={setShowModal}/> : ""}
         <input type="text" value={searchTerm} onChange={searchTermHandler}/>
-        {editModal ? <EditModal setShowEditModal={setShowEditModal} data={data} target={editTarget}/> : ""}
+        {editModal ? <EditModal setShowEditModal={setShowEditModal} data={data} target={target}/> : ""}
+        {deleteModal ? <DeleteModal setDeleteModal={setDeleteModal} setDeleted={setDeleted} target={target} /> : ""}
         {loaded ? 
             data.map((product) => (
             <div key={product.id}>
@@ -60,8 +64,8 @@ const Products = function() {
                     <h1>{product.title}</h1>
                     <h3>{product.description}</h3>
                 </li>
-                <button onClick={event => deleteProduct(event, product.id)}>delete</button> 
-                <button onClick={(e) => {setShowEditModal(true); setEditTarget(product)}}>edit</button>
+                <button onClick={e => {setDeleteModal(true); setTarget(product)}}>delete</button> 
+                <button onClick={(e) => {setShowEditModal(true); setTarget(product)}}>edit</button>
            </div>
         )) : 'Loading...'}
         </ul>

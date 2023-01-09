@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./EditModal.css"
 
 const EditModal = function(props){
     const [title, setTitle] = useState(props.target.title);

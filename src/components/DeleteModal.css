@@ -1,0 +1,13 @@
+.deleteModal{
+    position: absolute;
+    top:35vh;
+    left: 35vw;
+    width: 30%;
+    height: 40vh;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.deleteButtons{
+    margin: 10%;
+}
