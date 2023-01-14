@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
+import "./Login.css";
+
 const Login = function() {
     const [users, setUsers] = useState({});
     const [isValid, setIsValid] = useState(false);
@@ -18,7 +20,6 @@ const Login = function() {
             }
         }).then(data => {
             setUsers(data);
-            console.log(data);
         })
 
     },[])
@@ -37,7 +38,7 @@ const Login = function() {
             setIsValid(false);
         }
         
-    },[password, email])
+    },[password, email, users.length])
 
     const emailHandler = function(e){
         setEmail(e.target.value);
@@ -52,8 +53,7 @@ const Login = function() {
         e.preventDefault();
         const isUser = users.some((user) => {return user.email === email && user.password === password})
 
-        console.log(users);
-        if(isUser){
+        if(isUser && isValid){
             history.push('/products');
         }else{
             alert('There is no user. You need to register!');
@@ -61,14 +61,17 @@ const Login = function() {
     }
 
     return(
-        <form onSubmit={formHandler}>
-            <input type='email' name='email' value={email} onChange={emailHandler} required/>
-            <input type='password' name='password' value={password} onChange={passwordHandler} required/>
-            <button>Log in</button>
-            {isValid ? <p>You are good to go</p> : <p>Error my man</p>}
-
-            <Link to='/register'>Register?</Link>
-        </form>
+        <div className="loginContainer">
+        <div className="layer">
+        <form className="loginForm" onSubmit={formHandler}>
+                <h1>Login</h1>
+                <input type='email' name='email' value={email} onChange={emailHandler} placeholder="Email..." required/>
+                <input type='password' name='password' value={password} onChange={passwordHandler} placeholder="Password..." required/>
+                <button>LOG IN</button>
+                <Link to='/register'>Register?</Link>
+            </form>
+        </div>
+        </div>
     )
 }
 

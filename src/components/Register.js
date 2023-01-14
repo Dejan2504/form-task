@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 
+import "./Register.css";
+
 const Register = function() {
     const [isValidEmail, setIsValidEmail] = useState(false);
     const [isValidPass, setIsValidPass] = useState(false);
@@ -44,7 +46,6 @@ const Register = function() {
 
     const emailHandler = function(e){
         setEmail(e.target.value);
-        console.log(JSON.stringify(email));
     }
 
     const passwordHandler = function(e){
@@ -72,16 +73,19 @@ const Register = function() {
     }
 
     return(
-        <form onSubmit={addUser}>
-            <input type='email' value={email} onChange={emailHandler}/>
-            {isValidEmail ? <p>Email is Valid</p> : <p>Email is Invalid</p>}
-            <input type='password' value={password} onChange={passwordHandler}/>
-            {isValidPass ? <p>Password is Valid</p> : <p>Password is Invalid</p>}
-            <input type='password' value={confirmPassword} onChange={confirmPasswordHandler}/>
-            {isValidConfirmPass ? <p>Confirm password is Valid</p> : <p>Confirm password is Invalid</p>}
+        <div className="registerContainer">
+        <div className="layer">
+        <form className="registerForm" onSubmit={addUser}>
+        <h1>REGISTER</h1>
+            <input type='email' value={email} onChange={emailHandler} placeholder="Email..." required/>
+            <input type='password' value={password} onChange={passwordHandler} placeholder="Password..." required/>
+            <input type='password' value={confirmPassword} onChange={confirmPasswordHandler} placeholder="Confirm Password..." required/>
             
-            <button>Add user</button>
+            
+            <button>ADD USER</button>
         </form>
+        </div>
+        </div>
     )
 }
 

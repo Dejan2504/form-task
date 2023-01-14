@@ -23,7 +23,6 @@ const Products = function() {
                 console.log('error');
             }
         }).then(data => {
-            console.log(data);
             setData(data);
             setLoaded(true);
         })
@@ -36,17 +35,6 @@ const Products = function() {
     const searchTermHandler = function(e){
         setSearchTerm(e.target.value);
     }
-
-    const deleteProduct = function(_, key){
-        // event => deleteProduct(event, product.id)
-
-        fetch(`http://localhost:3500/products/${key}`, {
-            method: 'DELETE'
-        }).then(
-            setDeleted(true)
-        );
-    }
-
 
     return(
         <div>
@@ -64,8 +52,8 @@ const Products = function() {
                     <h1>{product.title}</h1>
                     <h3>{product.description}</h3>
                 </li>
-                <button onClick={e => {setDeleteModal(true); setTarget(product)}}>delete</button> 
-                <button onClick={(e) => {setShowEditModal(true); setTarget(product)}}>edit</button>
+                <button onClick={() => {setDeleteModal(true); setTarget(product)}}>delete</button> 
+                <button onClick={() => {setShowEditModal(true); setTarget(product)}}>edit</button>
            </div>
         )) : 'Loading...'}
         </ul>

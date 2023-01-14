@@ -48,10 +48,22 @@
   ],
   "products": [
     {
-      "createdAt": "2023-01-09T10:07:49.947Z",
+      "id": 1,
       "title": "new product",
-      "description": "ye yes",
-      "id": 1
+      "description": "ye yes da",
+      "createdAt": "2023-01-09T10:07:49.947Z"
+    },
+    {
+      "createdAt": "2023-01-09T16:26:44.026Z",
+      "title": "hukg",
+      "description": "bjkbibjbhuib",
+      "id": 2
+    },
+    {
+      "createdAt": "2023-01-09T16:26:52.069Z",
+      "title": "jkbuhbjb",
+      "description": "nklnbin",
+      "id": 3
     }
   ]
 }
