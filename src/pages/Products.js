@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import Modal from "./Modal";
-import EditModal from "./EditModal";
-import DeleteModal from "./DeleteModal";
+import Modal from "../components/Modal";
+import EditModal from "../components/EditModal";
+import DeleteModal from "../components/DeleteModal";
+
+import productData from "../services/productDataHandling";
 
 const Products = function() {
     const [data, setData]= useState({});
@@ -16,16 +18,12 @@ const Products = function() {
     useEffect(() => {
         setDeleted(false);
 
-        fetch(`http://localhost:3500/products?q=${searchTerm}&_sort=id&_order=desc`).then(res => {
-            if(res.ok){
-                return res.json();
-            }else {
-                console.log('error');
-            }
-        }).then(data => {
+        productData.searchProducts(searchTerm).then(data => {
             setData(data);
             setLoaded(true);
         })
+            
+        
     },[showModal, searchTerm, deleted]);
 
     const openModal = function(){

@@ -44,6 +44,11 @@
       "email": "Teodora@gmail.com",
       "password": "Teodora123!",
       "id": 3
+    },
+    {
+      "email": "kraja@gmail.com",
+      "password": "Radijaor1!",
+      "id": 4
     }
   ],
   "products": [
@@ -61,7 +66,7 @@
     },
     {
       "createdAt": "2023-01-09T16:26:52.069Z",
-      "title": "jkbuhbjb",
+      "title": "jkbuhbj",
       "description": "nklnbin",
       "id": 3
     }

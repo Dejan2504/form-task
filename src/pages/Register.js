@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
+import userData from "../services/userDataHandling";
 
 import "./Register.css";
 
@@ -59,17 +60,23 @@ const Register = function() {
     const addUser = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:3500/users',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                'email': email, 
-                'password': password})
-        })
+        if(isValidEmail && isValidPass && isValidConfirmPass){
 
-        history.push('/');
+            userData.registerUser(email, password)
+    
+            history.push('/');
+        }else {
+            if(isValidEmail === false){
+                alert('Email is not correct');
+            }
+            if(isValidPass === false){
+                alert('Password is weak! Needs: 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character and needs to be 8 characters long.')
+            }
+            if(isValidConfirmPass === false){
+                alert('Passwords do not match');
+            }
+        }
+
     }
 
     return(
@@ -80,8 +87,6 @@ const Register = function() {
             <input type='email' value={email} onChange={emailHandler} placeholder="Email..." required/>
             <input type='password' value={password} onChange={passwordHandler} placeholder="Password..." required/>
             <input type='password' value={confirmPassword} onChange={confirmPasswordHandler} placeholder="Confirm Password..." required/>
-            
-            
             <button>ADD USER</button>
         </form>
         </div>

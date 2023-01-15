@@ -1,24 +1,16 @@
 import { useState } from "react";
+import productData from "../services/productDataHandling";
+
 import "./EditModal.css"
 
 const EditModal = function(props){
+    const id = props.target.id;
+    const createdAt = props.target.createdAt;
     const [title, setTitle] = useState(props.target.title);
     const [description, setDescription] = useState(props.target.description);
 
     const changeData = function(){
-        fetch(`http://localhost:3500/products/${props.target.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                'id': props.target.id,
-                'title': title,
-                'description': description,
-                'createdAt': props.target.createdAt
-
-            })
-        })
+        productData.editProduct(id, title, description, createdAt);
     }
 
     return(

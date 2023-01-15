@@ -1,8 +1,8 @@
 import { Route } from 'react-router-dom';
 import './App.css';
-import Login from './components/Login';
-import Products from './components/Products';
-import Register from './components/Register';
+import Login from './pages/Login';
+import Products from './pages/Products';
+import Register from './pages/Register';
 
 function App() {
   return (

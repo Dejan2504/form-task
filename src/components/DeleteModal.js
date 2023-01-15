@@ -1,18 +1,16 @@
 import "./DeleteModal.css"
 
+import productData from "../services/productDataHandling";
+
 const DeleteModal = function(props){
-    console.log(props.setDeletedModal);
 
     const deleteProduct = function(_, key){
         // event => deleteProduct(event, product.id)
 
-        fetch(`http://localhost:3500/products/${key}`, {
-            method: 'DELETE'
-        }).then(
+        productData.deleteProduct(key).then(
             props.setDeleted(true)
         );
 
-        
         props.setDeleteModal(false);
     }
 

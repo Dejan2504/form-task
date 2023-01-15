@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import userData from "../services/userDataHandling";
 
 import "./Login.css";
 
@@ -12,16 +13,7 @@ const Login = function() {
     const history = useHistory();
 
     useEffect(() => {
-        fetch('http://localhost:3500/users').then(res => {
-            if(res.ok){
-                return res.json();
-            } else {
-                alert('error 404');
-            }
-        }).then(data => {
-            setUsers(data);
-        })
-
+        userData.getUsers().then(data => setUsers(data));
     },[])
 
     useEffect(() => {
@@ -40,15 +32,6 @@ const Login = function() {
         
     },[password, email, users.length])
 
-    const emailHandler = function(e){
-        setEmail(e.target.value);
-    }
-
-    const passwordHandler = function(e){
-        setPassword(e.target.value);
-        
-    }
-
     const formHandler = (e) => {
         e.preventDefault();
         const isUser = users.some((user) => {return user.email === email && user.password === password})
@@ -65,8 +48,8 @@ const Login = function() {
         <div className="layer">
         <form className="loginForm" onSubmit={formHandler}>
                 <h1>Login</h1>
-                <input type='email' name='email' value={email} onChange={emailHandler} placeholder="Email..." required/>
-                <input type='password' name='password' value={password} onChange={passwordHandler} placeholder="Password..." required/>
+                <input type='email' name='email' value={email} onChange={e => {setEmail(e.target.value)}} placeholder="Email..." required/>
+                <input type='password' name='password' value={password} onChange={e => {setPassword(e.target.value)}} placeholder="Password..." required/>
                 <button>LOG IN</button>
                 <Link to='/register'>Register?</Link>
             </form>
