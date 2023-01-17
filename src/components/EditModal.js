@@ -16,13 +16,13 @@ const EditModal = function(props){
     return(
         <form id="editProduct" className="editProduct" onSubmit={changeData}>
         <div className="closeModal">
-        <button onClick={() => {props.setShowEditModal(false)}}>X</button>
+        <button onClick={() => {props.setShowEditModal(false)}} className="closeEditModal">X</button>
         </div>
             <h1>Edit Product</h1>
             <div className="editProductInput">
                 <input type="text" maxLength={30} value={title} onChange={(e) => {setTitle(e.target.value)}} placeholder="Title" required/>
-                <textarea form="editProduct" maxLength={300} value={description} onChange={e => {setDescription(e.target.value)}} required>Enter description...</textarea>
-                <button>Change product</button>
+                <textarea form="editProduct" maxLength={300} value={description} onChange={e => {setDescription(e.target.value)}} rows="4" cols="50" required>Enter description...</textarea>
+                <button className="changeProduct">Change product</button>
             </div>
         </form>
     );

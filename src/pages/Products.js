@@ -3,6 +3,7 @@ import Modal from "../components/Modal";
 import EditModal from "../components/EditModal";
 import DeleteModal from "../components/DeleteModal";
 import Card from "../components/Card";
+import './Products.css';
 
 import productData from "../services/productDataHandling";
 
@@ -28,14 +29,16 @@ const Products = function() {
     },[showModal, searchTerm, deleted]);
     
     return(
-        <div>
-        <ul>
+        <div className="product">
         <h1>Products</h1>
-        <button onClick={() => setShowModal(true)}>Add product</button>
+        <div className="top">
+        <button className='addButton' onClick={() => setShowModal(true)}>ADD PRODUCT</button>
+        <input className="searchBar" type="text" value={searchTerm} onChange={e => {setSearchTerm(e.target.value)}} placeholder="Search..."/>
+        </div>
         {showModal ? <Modal setShowModal={setShowModal}/> : ""}
-        <input type="text" value={searchTerm} onChange={e => {setSearchTerm(e.target.value)}}/>
         {editModal ? <EditModal setShowEditModal={setShowEditModal} data={data} target={target}/> : ""}
         {deleteModal ? <DeleteModal setDeleteModal={setDeleteModal} setDeleted={setDeleted} target={target} /> : ""}
+        <ul>
         {loaded ? 
             data.map((product) => (
                 <Card key={product.id} product={product} setDeleteModal={setDeleteModal} setShowEditModal={setShowEditModal} setTarget={setTarget} />  

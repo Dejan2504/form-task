@@ -38,7 +38,7 @@ const Modal = function(props){
             <h1>Add Product</h1>
             <div className="addProductInput">
                 <input type="text" maxLength={30} value={title} onChange={(e) => {setTitle(e.target.value)}} placeholder="Title" required/>
-                <textarea form="addProduct" maxLength={300} value={description} onChange={e => {setDescription(e.target.value)}} required>Enter description...</textarea>
+                <textarea form="addProduct" maxLength={300} value={description} onChange={e => {setDescription(e.target.value)}} rows="10" cols="50" required>Enter description...</textarea>
                 <button>Add product</button>
             </div>
         </form>
