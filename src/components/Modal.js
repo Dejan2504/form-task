@@ -33,7 +33,7 @@ const Modal = function(props){
     return(
         <form id="addProduct" className="addProduct" onSubmit={addProduct}>
         <div className="closeModal">
-        <button onClick={closeModal}>X</button>
+        <button onClick={closeModal} className="closeAddModal">X</button>
         </div>
             <h1>Add Product</h1>
             <div className="addProductInput">

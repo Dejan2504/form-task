@@ -39,6 +39,15 @@
     color: white;
 }
 
+input::placeholder,
+textarea::placeholder{
+    color: white;
+}
+
+.editProductInput textarea{
+    height: 10vh;
+}
+
 
 
 .editProductInput button{

@@ -1,10 +1,14 @@
 .addProduct{
     position: absolute;
-    top:35vh;
-    left: 35vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 30%;
-    height: 40vh;
-    border: 1px solid black;
+    height: 50vh;
+    border-radius: 30px;
+    text-align: center;
+    border: 7px solid black;
+    background-color: rgb(36, 36, 36);
 }
 
 .closeModal{
@@ -24,12 +28,43 @@
     align-items: center;
 }
 
+.addProductInput input, textarea{
+    margin: 1%;
+    width: 20vw;
+    height: 4vh;
+    border-radius: 30px;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: #555;
+    padding: 10px;
+    color: white;
+}
+
 .addProductInput input{
     margin: 1%;
 }
 
+.addProductInput textarea{
+    height: 10vh;
+}
+
 .addProductInput button{
-    width: 70%;
-    height: 20%;
+    margin: 20px 0 0 0;
+    width: 20vw;
+    height: 6vh;
     display: block;
+    border: 5px solid #d05e82;
+    padding: 10px;
+    background-color: #B8778C;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 30px;
+}
+
+.closeAddModal{
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-weight: 900;
+    font-size: 25px;
 }
